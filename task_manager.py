@@ -42,3 +42,11 @@ def delete_task(id):
             tasks.remove(task)
             break  
     save_tasks(tasks)
+
+def mark_status(id, status):
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == id:
+            task['status'] = status
+            task['updatedAt'] = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    save_tasks(tasks)

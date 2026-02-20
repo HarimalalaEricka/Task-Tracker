@@ -16,7 +16,9 @@ def main():
             break
         elif command == 'load_tasks':
             tasks = task_manager.load_tasks() 
-            print(tasks)
+        elif command == 'add_task':
+            task = task_manager.add_task('coucou')
+            print(task)
 
 if __name__ == "__main__":
     main()

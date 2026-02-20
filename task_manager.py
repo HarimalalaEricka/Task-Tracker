@@ -109,3 +109,15 @@ def list_tasks_sorted_by_date():
     print("-" * 90)
     for task in sorted_tasks:
         print(f"{task['createdAt']}\t{task['updatedAt']}\t{task['id']}\t{task['status']:<10}\t{task['description'][:30]:<30}")
+
+def list_tasks_by_status(status):
+    tasks = load_tasks()
+    filtered = [task for task in tasks if task['status'] == status]
+    if not filtered:
+        print(f"Aucune tâche trouvée pour le statut {status}.")
+        return
+    print(f"Liste des tâches avec le statut {status} :")
+    print("Created\t\t\tUpdated\t\t\tID\tStatus\t\tDescription")
+    print("-" * 90)
+    for task in filtered:
+        print(f"{task['createdAt']}\t{task['updatedAt']}\t{task['id']}\t{task['status']:<10}\t{task['description'][:30]:<30}")

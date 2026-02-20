@@ -50,3 +50,11 @@ def mark_status(id, status):
             task['status'] = status
             task['updatedAt'] = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     save_tasks(tasks)
+
+def list_task():
+    tasks = load_tasks()
+    print("Liste des tâches :")
+    print("Created\t\t\tUpdated\t\t\tID\tStatus\t\tDescription")
+    print("-" * 90)
+    for task in tasks:
+        print(f"{task['createdAt']}\t{task['updatedAt']}\t{task['id']}\t{task['status']:<10}\t{task['description'][:30]:<30}")

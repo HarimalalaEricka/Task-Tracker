@@ -23,6 +23,8 @@ def main():
             task_manager.delete_task(1)
         elif command == 'upd':
             task_manager.mark_status(1, 'done')
+        elif command == 'list':
+            task_manager.list_task()
 
 if __name__ == "__main__":
     main()

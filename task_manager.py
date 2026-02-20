@@ -1,6 +1,24 @@
 import json
+import datetime
 
 def load_tasks():
     f = open('task.json', 'r')
     tasks = json.load(f)
     return tasks
+
+def add_task(task):
+    tasks = load_tasks()
+    last_task = tasks[-1]
+    last_id = last_task['id']
+    new_id = last_id + 1
+    status = 'todo'
+    createdAt = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    updatedAt = createdAt
+    data = { 
+        'id': new_id,
+        'description': task,
+        'status': status,
+        'createdAt': createdAt,
+        'updatedAt': updatedAt
+    }
+    return data

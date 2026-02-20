@@ -41,4 +41,4 @@ def delete_task(id):
         if task['id'] == id:
             tasks.remove(task)
             break  
-    print(tasks)
+    save_tasks(tasks)

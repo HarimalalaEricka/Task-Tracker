@@ -27,3 +27,10 @@ def add_task(task):
     }
     tasks.append(new_task)
     save_tasks(tasks)
+
+def update_task(id, desc):
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == id:
+            task['description'] = desc
+    save_tasks(tasks)

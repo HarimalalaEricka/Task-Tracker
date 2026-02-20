@@ -19,6 +19,8 @@ def main():
             task = task_manager.add_task('coucou')
         elif command == 'up':
             task_manager.update_task(1, 'update task')
+        elif command == 'del':
+            task_manager.delete_task(1)
 
 if __name__ == "__main__":
     main()

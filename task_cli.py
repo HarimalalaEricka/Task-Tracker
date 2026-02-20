@@ -1,8 +1,9 @@
 import task_manager
+import os
 
 def main():
     while True:
-        entree = input('task > ').strip()
+        entree = input('task-cli > ').strip()
         
         # 2. Parsing basique
         parts = entree.split()
@@ -13,18 +14,53 @@ def main():
 
         if command == 'exit':
             break
-        elif command == 'load_tasks':
-            tasks = task_manager.load_tasks() 
-        elif command == 'add_task':
-            task = task_manager.add_task('coucou')
-        elif command == 'up':
-            task_manager.update_task(1, 'update task')
+        elif command == 'add':
+            task_manager.add_task(' '.join(args))
+        elif command == 'update':
+            if len(args) >= 2:
+                try:
+                    task_id = int(args[0])
+                    description = ' '.join(args[1:])
+                    task_manager.update_task(task_id, description)
+                except ValueError:
+                    print("Erreur : l'ID doit être un nombre.")
+            else:
+                print("Usage : update <ID> <description>")
         elif command == 'del':
-            task_manager.delete_task(1)
-        elif command == 'upd':
-            task_manager.mark_status(1, 'done')
+            task_manager.delete_task(int(args[0]))
+        elif command == 'mark-in-progress':
+            if len(args) >= 1:
+                try:
+                    task_id = int(args[0])
+                    task_manager.mark_status(task_id, 'in-progress')
+                except ValueError:
+                    print("Erreur : l'ID doit être un nombre.")
+            else:
+                print("Usage : mark-in-progress <ID>")
+        elif command == 'mark-done':
+            if len(args) >= 1:
+                try:
+                    task_id = int(args[0])
+                    task_manager.mark_status(task_id, 'done')
+                except ValueError:
+                    print("Erreur : l'ID doit être un nombre.")
+            else:
+                print("Usage : mark-done <ID>")
         elif command == 'list':
             task_manager.list_task()
+        elif command == 'clear':
+            os.system('cls')
+        elif command == 'help':
+            print("Commandes disponibles :")
+            print("  add <description>          - Ajouter une nouvelle tâche")
+            print("  update <ID> <description>  - Mettre à jour la description d'une tâche")
+            print("  del <ID>                   - Supprimer une tâche")
+            print("  mark-in-progress <ID>      - Marquer une tâche comme en cours")
+            print("  mark-done <ID>             - Marquer une tâche comme terminée")
+            print("  list                       - Lister toutes les tâches")
+            print("  clear                      - Effacer l'écran")
+            print("  help                       - Afficher cette aide")
+            print("  exit                       - Quitter l'application")
 
 if __name__ == "__main__":
     main()

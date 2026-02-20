@@ -17,7 +17,8 @@ def main():
             tasks = task_manager.load_tasks() 
         elif command == 'add_task':
             task = task_manager.add_task('coucou')
-            print(task)
+        elif command == 'up':
+            task_manager.update_task(1, 'update task')
 
 if __name__ == "__main__":
     main()

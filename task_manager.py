@@ -34,3 +34,11 @@ def update_task(id, desc):
         if task['id'] == id:
             task['description'] = desc
     save_tasks(tasks)
+
+def delete_task(id):
+    tasks = load_tasks()
+    for task in tasks:  
+        if task['id'] == id:
+            tasks.remove(task)
+            break  
+    print(tasks)

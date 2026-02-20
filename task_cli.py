@@ -16,23 +16,27 @@ def main():
             break
         elif command == 'add':
             task_manager.add_task(' '.join(args))
+            print("Tâche ajoutée.")
         elif command == 'update':
             if len(args) >= 2:
                 try:
                     task_id = int(args[0])
                     description = ' '.join(args[1:])
                     task_manager.update_task(task_id, description)
+                    print("Tâche mise à jour.")
                 except ValueError:
                     print("Erreur : l'ID doit être un nombre.")
             else:
                 print("Usage : update <ID> <description>")
         elif command == 'del':
             task_manager.delete_task(int(args[0]))
+            print("Tâche supprimée.")
         elif command == 'mark-in-progress':
             if len(args) >= 1:
                 try:
                     task_id = int(args[0])
                     task_manager.mark_status(task_id, 'in-progress')
+                    print("Tâche marquée comme en cours.")
                 except ValueError:
                     print("Erreur : l'ID doit être un nombre.")
             else:
@@ -42,6 +46,7 @@ def main():
                 try:
                     task_id = int(args[0])
                     task_manager.mark_status(task_id, 'done')
+                    print("Tâche marquée comme terminée.")
                 except ValueError:
                     print("Erreur : l'ID doit être un nombre.")
             else:

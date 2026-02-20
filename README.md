@@ -1,137 +1,137 @@
 # Task Tracker CLI
 
-Une application en ligne de commande pour gérer vos tâches quotidiennes.
+A command-line application to manage your daily tasks.
 
-> Projet basé sur [roadmap.sh/projects/task-tracker](https://roadmap.sh/projects/task-tracker)
+> Project based on [roadmap.sh/projects/task-tracker](https://roadmap.sh/projects/task-tracker)
 
 ---
 
-## Prérequis
+## Prerequisites
 
-- Python 3.x installé sur votre système
+- Python 3.x installed on your system
 
 ---
 
 ## Installation
 
-1. Clonez ce dépôt :
+1. Clone this repository:
    ```bash
    git clone https://github.com/HarimalalaEricka/Task-Tracker.git
    cd Task-Tracker
    ```
 
-2. Aucune dépendance externe n'est requise.
+2. No external dependencies required.
 
 ---
 
-## Lancement
+## Getting Started
 
-Exécutez le fichier principal :
+Run the main file:
 
 ```bash
 python task_cli.py
 ```
 
-Une invite de commande `task-cli >` apparaîtra, prête à recevoir vos commandes.
+A command prompt `task-cli >` will appear, ready to receive your commands.
 
 ---
 
-## Commandes disponibles
+## Available Commands
 
-| Commande                      | Description |
+| Command                       | Description |
 |-------------------------------|-------------|
-| `add <description>`           | Ajouter une nouvelle tâche |
-| `update <ID> <description>`   | Modifier la description d'une tâche |
-| `del <ID>`                    | Supprimer une tâche |
-| `mark-in-progress <ID>`       | Marquer une tâche comme en cours |
-| `mark-done <ID>`              | Marquer une tâche comme terminée |
-| `list`                        | Afficher toutes les tâches |
-| `list-by-date <date>`         | Filtrer les tâches par date de création |
-| `list-by-status <status>`     | Filtrer les tâches par statut |
-| `list-sorted`                 | Afficher les tâches triées par date (récent en premier) |
-| `clear`                       | Effacer l'écran |
-| `help`                        | Afficher l'aide |
-| `exit`                        | Quitter l'application |
+| `add <description>`           | Add a new task |
+| `update <ID> <description>`   | Update a task's description |
+| `del <ID>`                    | Delete a task |
+| `mark-in-progress <ID>`       | Mark a task as in progress |
+| `mark-done <ID>`              | Mark a task as done |
+| `list`                        | Display all tasks |
+| `list-by-date <date>`         | Filter tasks by creation date |
+| `list-by-status <status>`     | Filter tasks by status |
+| `list-sorted`                 | Display tasks sorted by date (most recent first) |
+| `clear`                       | Clear the screen |
+| `help`                        | Display help |
+| `exit`                        | Quit the application |
 
 ---
 
-## Exemples d'utilisation
+## Usage Examples
 
-### Ajouter une tâche
+### Add a task
 ```
-task-cli > add Acheter du pain
-Tâche ajoutée.
+task-cli > add Buy some bread
+Task added.
 ```
 
-### Lister toutes les tâches
+### List all tasks
 ```
 task-cli > list
-Liste des tâches :
+Task list:
 Created                 Updated                 ID      Status          Description
 ------------------------------------------------------------------------------------------
-20/02/2026 10:30:00     20/02/2026 10:30:00     1       todo            Acheter du pain
+20/02/2026 10:30:00     20/02/2026 10:30:00     1       todo            Buy some bread
 ```
 
-### Mettre à jour une tâche
+### Update a task
 ```
-task-cli > update 1 Acheter du pain et du lait
-Tâche mise à jour.
+task-cli > update 1 Buy bread and milk
+Task updated.
 ```
 
-### Marquer une tâche en cours
+### Mark a task as in progress
 ```
 task-cli > mark-in-progress 1
-Tâche marquée comme en cours.
+Task marked as in progress.
 ```
 
-### Marquer une tâche comme terminée
+### Mark a task as done
 ```
 task-cli > mark-done 1
-Tâche marquée comme terminée.
+Task marked as done.
 ```
 
-### Supprimer une tâche
+### Delete a task
 ```
 task-cli > del 1
-Tâche supprimée.
+Task deleted.
 ```
 
-### Filtrer par statut
+### Filter by status
 ```
 task-cli > list-by-status todo
 task-cli > list-by-status in-progress
 task-cli > list-by-status done
 ```
 
-### Filtrer par date
+### Filter by date
 ```
 task-cli > list-by-date 20/02/2026
 ```
 
 ---
 
-## Statuts des tâches
+## Task Statuses
 
-| Statut | Description |
+| Status | Description |
 |--------|-------------|
-| `todo` | Tâche à faire (statut par défaut) |
-| `in-progress` | Tâche en cours |
-| `done` | Tâche terminée |
+| `todo` | Task to do (default status) |
+| `in-progress` | Task in progress |
+| `done` | Task completed |
 
 ---
 
-## Stockage des données
+## Data Storage
 
-Les tâches sont sauvegardées dans le fichier `task.json` au format JSON. Ce fichier est créé automatiquement lors de la première utilisation.
+Tasks are saved in the `task.json` file in JSON format. This file is automatically created on first use.
 
 ---
 
-## Structure d'une tâche
+## Task Structure
 
 ```json
 {
     "id": 1,
-    "description": "Ma tâche",
+    "description": "My task",
     "status": "todo",
     "createdAt": "20/02/2026 10:30:00",
     "updatedAt": "20/02/2026 10:30:00"
@@ -140,6 +140,6 @@ Les tâches sont sauvegardées dans le fichier `task.json` au format JSON. Ce fi
 
 ---
 
-## Licence
+## License
 
-Ce projet est libre d'utilisation.
+This project is free to use.

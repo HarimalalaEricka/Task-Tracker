@@ -6,6 +6,10 @@ def load_tasks():
     tasks = json.load(f)
     return tasks
 
+def save_tasks(tasks):
+    f = open('task.json', 'w')
+    json.dump(tasks, f, indent=4)
+
 def add_task(task):
     tasks = load_tasks()
     last_task = tasks[-1]
@@ -14,11 +18,12 @@ def add_task(task):
     status = 'todo'
     createdAt = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     updatedAt = createdAt
-    data = { 
+    new_task = { 
         'id': new_id,
         'description': task,
         'status': status,
         'createdAt': createdAt,
         'updatedAt': updatedAt
     }
-    return data
+    tasks.append(new_task)
+    save_tasks(tasks)

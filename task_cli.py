@@ -10,7 +10,6 @@ def main():
             continue
         command = parts[0]
         args = parts[1:]
-        print(args)
 
         if command == 'exit':
             break

@@ -49,6 +49,14 @@ def main():
                 print("Usage : mark-done <ID>")
         elif command == 'list':
             task_manager.list_task()
+        elif command == 'list-by-date':
+            if args:
+                date = args[0]
+                task_manager.list_tasks_by_date(date)
+            else:
+                print("Usage : list-by-date <date> (format: dd/mm/yyyy)")
+        elif command == 'list-sorted':
+            task_manager.list_tasks_sorted_by_date()
         elif command == 'clear':
             os.system('cls')
         elif command == 'help':
@@ -59,6 +67,8 @@ def main():
             print("  mark-in-progress <ID>      - Marquer une tâche comme en cours")
             print("  mark-done <ID>             - Marquer une tâche comme terminée")
             print("  list                       - Lister toutes les tâches")
+            print("  list-by-date <date>        - Lister les tâches par date (dd/mm/yyyy)")
+            print("  list-sorted                - Lister les tâches triées par date (récent en premier)")
             print("  clear                      - Effacer l'écran")
             print("  help                       - Afficher cette aide")
             print("  exit                       - Quitter l'application")

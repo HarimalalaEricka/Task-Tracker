@@ -80,12 +80,32 @@ def mark_status(id, status):
         print("Tâche marquée comme en cours.")
     elif status == 'done':
         print("Tâche marquée comme terminée.")
-
-
+ 
 def list_task():
     tasks = load_tasks()
     print("Liste des tâches :")
     print("Created\t\t\tUpdated\t\t\tID\tStatus\t\tDescription")
     print("-" * 90)
     for task in tasks:
+        print(f"{task['createdAt']}\t{task['updatedAt']}\t{task['id']}\t{task['status']:<10}\t{task['description'][:30]:<30}")
+
+def list_tasks_by_date(date):
+    tasks = load_tasks()
+    filtered = [task for task in tasks if task['createdAt'].startswith(date)]
+    if not filtered:
+        print(f"Aucune tâche trouvée pour la date {date}.")
+        return
+    print(f"Liste des tâches créées le {date} :")
+    print("Created\t\t\tUpdated\t\t\tID\tStatus\t\tDescription")
+    print("-" * 90)
+    for task in filtered:
+        print(f"{task['createdAt']}\t{task['updatedAt']}\t{task['id']}\t{task['status']:<10}\t{task['description'][:30]:<30}")
+
+def list_tasks_sorted_by_date():
+    tasks = load_tasks()
+    sorted_tasks = sorted(tasks, key=lambda x: x['createdAt'], reverse=True)
+    print("Liste des tâches triées par date (plus récent en premier) :")
+    print("Created\t\t\tUpdated\t\t\tID\tStatus\t\tDescription")
+    print("-" * 90)
+    for task in sorted_tasks:
         print(f"{task['createdAt']}\t{task['updatedAt']}\t{task['id']}\t{task['status']:<10}\t{task['description'][:30]:<30}")
